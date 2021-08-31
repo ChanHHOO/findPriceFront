@@ -4,12 +4,15 @@ import logo from "../../../images/logo2.jpg"
 import styled from "styled-components"
 
 const Header = styled.div`
-    
+    position: fixed;
+    width:100%;
+    z-index:99;
+    background-color:white;
     font-size: 30px;
     .logo{
         height:3em;
     }
-    border-bottom: solid 3px rgba(188,188,188,9);
+    border-bottom: solid 1.5px rgba(188,188,188,9);
 
 `
 
@@ -29,7 +32,7 @@ const HeaderComponent = () => {
         <Header>
             <Grid 
                 centered
-                columns={2}
+                columns={1}
             >
                 <Grid.Row>
                     <img className={"logo"}src={logo}></img>

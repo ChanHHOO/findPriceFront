@@ -2,12 +2,11 @@ import React from "react";
 //https://velog.io/@velopert/react-redux-hooks
 import { Search, Grid, Segment } from 'semantic-ui-react'
 import styled from "styled-components"
-
 import SearchComponent from "../SearchComponent/SearchComponent"
 import ResultBodyComponent from "../ResultComponent/ResultBodyComponent"
 
 const Main = styled.div`
-    padding-top:5em;
+    padding-top:10em;
     .description{
         font-size:3em;
     
@@ -28,7 +27,7 @@ const MainComponent = (props) => {
                     </span>
                 </Grid.Row>
                 
-                <Grid.Row className={"searceComponent"}>
+                <Grid.Row className={"searchComponent"}>
                     <SearchComponent />
                 </Grid.Row>
                 <Grid.Row className={"resultComponent"}>

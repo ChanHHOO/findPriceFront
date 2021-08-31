@@ -13,8 +13,8 @@ const HeaderComponent = () => {
         <div>
             <Grid 
                 centered
-                columns={2}
                 style={{paddingTop:"2em"}}
+                className={"searchSection"}
             >
                 <Grid.Row>
                     <Search value={itemName} onSearchChange={onChangeInput}/>
