@@ -6,20 +6,18 @@ const HeaderComponent = () => {
     
     const onChangeInput = (e) => {
         setItemName(e.target.data)
-        
+    }
+    const onSubmit = (e) => {
+        console.log("clickckcici");
     }
     
     return(
         <div>
-            <Grid 
-                centered
-                style={{paddingTop:"2em"}}
-                className={"searchSection"}
-            >
-                <Grid.Row>
-                    <Search value={itemName} onSearchChange={onChangeInput}/>
-                </Grid.Row>
-            </Grid>
+            <Search 
+                value={itemName}
+                size={"mini"}
+                onSearchChange={onChangeInput} 
+                onKeyPress={onSubmit}/>
         </div>
     )
 
