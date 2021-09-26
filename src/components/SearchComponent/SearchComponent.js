@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 
-const HeaderComponent = () => {
+const HeaderComponent = (props) => {
     const [itemName, setItemName] = useState("");
     
     const onChangeInput = (e) => {
         setItemName(e.target.data)
     }
     const onSubmit = (e) => {
-        console.log("clickckcici");
+        console.log(props);
     }
     
     return(
