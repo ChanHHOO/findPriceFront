@@ -4,7 +4,7 @@ import logo from "../../../images/logo2.jpg"
 import styled from "styled-components"
 
 import SearchComponent from "../../SearchComponent/SearchComponent";
-
+import SearchContainer from "../../../containers/SearchContainer/SearchContainer";
 
 const Header = styled.div`
     position: fixed;
@@ -16,9 +16,9 @@ const Header = styled.div`
         height:3em;
     }
     border-bottom: solid 1.5px rgba(188,188,188,9);
-    .logo{
+    .searchForm{{
         margin-left:13em;
-    }
+    }}
 `
 
 
@@ -32,22 +32,20 @@ const initialState = {
                 // </Grid.Row>
 
 const HeaderComponent = () => {
-    
+    //const SearchContainer = props;
     return(
         <Header>
             <Grid 
-                columns={3}
+                columns={5}
             >
                 <Grid.Column className={"logo"}>
                     <img className={"logoImg"}src={logo}></img>
                 </Grid.Column>
-                <Grid.Column verticalAlign={"middle"}>
-                    <SearchComponent/>
+                <Grid.Column className={"searchForm"} verticalAlign={"middle"}>
+                    <SearchContainer />
                 </Grid.Column>
             </Grid>
         </Header>
     )
-
-    
 }
 export default HeaderComponent;

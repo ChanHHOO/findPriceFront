@@ -2,17 +2,21 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import SearchComponent from '../../components/SearchComponent/SearchComponent'
 import {connect} from 'react-redux';
-import * as searchActions from 'store/modules/search';
+import * as searchActions from '../../store/modules/search';
 
 const SearchContainer = (props) => {
-    handleSuccessSearch = ()=>{
-        console.log("asdasd")
+    console.log(props.isSearched);
+    const handleSuccessSearch = ()=>{
         props.successSearch();
+    }
+    const handleFailSearch = ()=>{
+        props.failSearch();
     }
     return (
         <SearchComponent  
             onSuccessSearch={handleSuccessSearch}
-            test={"11"}
+            onFailSearch={handleFailSearch}
+            isSearched={props.isSearched}
         />
     )
 }

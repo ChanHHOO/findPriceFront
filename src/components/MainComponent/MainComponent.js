@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //https://velog.io/@velopert/react-redux-hooks
 import { Search, Grid, Segment } from 'semantic-ui-react'
 import styled from "styled-components"
@@ -23,10 +23,15 @@ const Main = styled.div`
         
     }
 `
+
 const MainComponent = (props) => {
 
+
+
     return(
+
         <Main>
+
             <Grid className={"mainComponent"}>
                 <Grid.Column 
                     width={8}
@@ -35,16 +40,14 @@ const MainComponent = (props) => {
                     <span className={"description"}>
                         팔고싶은 당신의 물건 과연 얼마일까?
                     </span>
+
                 </Grid.Column>
                 <Grid.Column>
                     <img className={"tradeImage"} src={tradeImage}></img>
                 </Grid.Column>
-
-                
-                
             </Grid>
             
-            {true && <Redirect to="/search" />}
+            {false && <Redirect to="/search" />}
         </Main>
     )
 
