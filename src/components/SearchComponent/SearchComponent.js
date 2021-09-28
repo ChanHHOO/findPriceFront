@@ -8,13 +8,12 @@ const _Search = styled.div`
 
 
 `
-
-
-const HeaderComponent = () => {
+const SearchComponent = (props) => {
     const [itemName, setItemName] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
     const onChangeInput = (e) => {
+        console.log(test)
         setItemName(e.target.value)
         //console.log(e.target.value)
     }
@@ -30,13 +29,11 @@ const HeaderComponent = () => {
                 // --------------------------
                 setItemName("");
                 setIsSuccess(true)
-    
             })
-            .catch((err)=>{
-                console.log(err);
-            })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
-        
     }
     return(
         isSuccess?
@@ -57,4 +54,4 @@ const HeaderComponent = () => {
 
     
 }
-export default HeaderComponent;
+export default SearchComponent;

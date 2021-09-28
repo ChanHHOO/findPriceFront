@@ -31,8 +31,9 @@ const initialState = {
                 //     </span>
                 // </Grid.Row>
 
-const HeaderComponent = () => {
-    
+const HeaderComponent = ({SearchContainer}) => {
+    //const SearchContainer = props;
+    console.log(SearchContainer);
     return(
         <Header>
             <Grid 
@@ -42,7 +43,7 @@ const HeaderComponent = () => {
                     <img className={"logoImg"}src={logo}></img>
                 </Grid.Column>
                 <Grid.Column className={"searchForm"} verticalAlign={"middle"}>
-                    <SearchComponent/>
+                    {/* <SearchContainer/> */}
                 </Grid.Column>
             </Grid>
         </Header>
