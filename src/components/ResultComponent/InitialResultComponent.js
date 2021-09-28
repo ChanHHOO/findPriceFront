@@ -27,6 +27,7 @@ const initialState = {
     
 
 const InitialResultComponent = (props) => {
+    console.log(props);
     
     return(
         <InitialBody>

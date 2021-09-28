@@ -19,8 +19,6 @@ const HeaderComponent = (props) => {
                 onSearchChange={onChangeInput} 
                 onKeyPress={onSubmit}/>
         </div>
-    )
-
-    
+    )    
 }
 export default HeaderComponent;
