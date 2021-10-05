@@ -5,7 +5,7 @@ import store from './store';
 
 import MainContainer from './containers/MainContainer/MainContainer'
 import HeaderComponent from './components/commonComponents/HeaderComponent/HeaderComponent';
-import ResultComponent from './components/ResultComponent/ResultComponent';
+import Result from './pages/Result'
 
 class App extends Component{
   render(){
@@ -13,6 +13,7 @@ class App extends Component{
       <Provider store={store}>
         <HeaderComponent />
         <Route exact path='/' component={MainContainer} />
+        <Route exact path='/result/:searchedItem' component={Result} />
       </Provider>
     );
   }

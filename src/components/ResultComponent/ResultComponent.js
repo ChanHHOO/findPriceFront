@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { Search, Grid, Segment, Card, Image } from 'semantic-ui-react'
 import styled from "styled-components"
-import InitialResultComponent from "./InitialResultComponent";
 import ResultBodyComponent from "./ResultBodyComponent";
-
+import { Redirect } from "react-router";
 const Result = styled.div`
 
 `
@@ -15,14 +14,15 @@ const initialState = {
     
 
 const ResultComponent = (props) => {
-    const [state, setState] = useState(initialState);
-
     return(
-        state.isCompleteSearch ? 
+        // props.isSearched
+        true? 
             <ResultBodyComponent></ResultBodyComponent> 
-            : 
-            <InitialResultComponent></InitialResultComponent>
-        
+            :
+            <Redirect
+                to={{
+                    pathname: '/'
+                }} />
     )
 }
 export default ResultComponent;
