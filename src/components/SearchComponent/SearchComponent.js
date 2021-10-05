@@ -20,22 +20,20 @@ const SearchComponent = (props) => {
     const onSubmit = (e) => {
         
         if(e.code.includes("Enter")){
-            // axios.post('http://localhost:8080/api/getDaangnData',{
-            //     searchItem:itemName,
-            // })
-            // .then((res) => {
-            //     // response value mapping code
+            axios.post('http://localhost:8080/api/getDaangnData',{
+                searchItem:itemName,
+            })
+            .then((res) => {
+                // response value mapping code
     
-            //     // --------------------------
-            //     setItemName("");
-            //     setIsSuccess(true)
-            // })
-            //     .catch((err) => {
-            //         console.log(err);
-            //     })
-            onSuccessSearch();
-            setIsSuccess(isSearched);
-            
+                // --------------------------
+                onSuccessSearch();
+                setIsSuccess(isSearched);
+                setItemName("");
+            })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
     }
     useEffect(()=>{}, [isSuccess])
