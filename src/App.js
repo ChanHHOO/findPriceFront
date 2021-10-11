@@ -5,14 +5,14 @@ import store from './store';
 
 import MainContainer from './containers/MainContainer/MainContainer'
 import HeaderComponent from './components/commonComponents/HeaderComponent/HeaderComponent';
-import ResultComponent from './components/ResultComponent/ResultComponent';
-
+import ResultPage from "./pages/Result"
 class App extends Component{
   render(){
     return (
       <Provider store={store}>
         <HeaderComponent />
         <Route exact path='/' component={MainContainer} />
+        <Route exact path='/search' component={ResultPage} />
       </Provider>
     );
   }

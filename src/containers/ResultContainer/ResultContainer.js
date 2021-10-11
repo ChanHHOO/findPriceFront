@@ -1,16 +1,23 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, connect} from 'react-redux';
+import ResultBodyComponent from '../../components/ResultComponent/ResultBodyComponent';
+import * as searchActions from '../../store/modules/search';
 
-import MainComponent from '../../components/MainComponent/MainComponent';
-import HeaderComponent from "../../components/commonComponents/HeaderComponent/HeaderComponent"
-const MainContainer = () => {
+const ResultContainer = (props) => {
     return (
         <div>
-            <HeaderComponent></HeaderComponent>
-            <MainComponent></MainComponent>
+            <ResultBodyComponent searchedData={props.searchedData}/>
         </div>
         
     )
 }
 
-export default MainContainer;
+export default connect(
+    (state) => ({
+        searchedData:state.search.searchedData,
+    }),
+    (dispatch) => ({
+        successSearch:()=>dispatch(searchActions.successSearch()),
+        
+    })
+)(ResultContainer);

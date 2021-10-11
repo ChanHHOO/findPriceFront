@@ -96,11 +96,19 @@ const ResultBodyComponent = (props) => {
     
     const totalItemCount = props.totalItemCount || 865;
     const averagePrice = props.averagePrice || 35053351 ;
-    
+    const {
+        article_avrPrice,
+        article_id,
+        article_maxImgStr,
+        article_maxPrice,
+        article_minImgStr,
+        article_minPrice,
+        article_title,
+    } = props.searchedData;
+    console.log(props.searchedData)
     const [state, setState] = useState(initialState);
     
     var handledGraphData = handleGraphData(state.graphData);
-
     return(
         <ResultBody>
             <Segment.Group>
@@ -111,21 +119,21 @@ const ResultBodyComponent = (props) => {
                         <Grid.Column>                   
                             <Card>
                                 최소가 상품
-                                <Image src={state.lowestItem.img}/>
+                                <Image src={article_minImgStr}/>
                                 <Card.Content>
                                     
                                     <Card.Header>{state.lowestItem.itemName}</Card.Header>
-                                    <Card.Description>{state.lowestItem.price}원</Card.Description>
+                                    <Card.Description>{article_minPrice}원</Card.Description>
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
                         <Grid.Column>                   
                             <Card>
                                 최대가 상품
-                                <Image src={state.highestItem.img}/>
+                                <Image src={ article_maxImgStr}/>
                                 <Card.Content>
                                     <Card.Header>{state.highestItem.itemName}</Card.Header>
-                                    <Card.Description>{state.highestItem.price}원</Card.Description>
+                                    <Card.Description>{article_maxPrice}원</Card.Description>
                                 </Card.Content>
                             </Card>
                         </Grid.Column>

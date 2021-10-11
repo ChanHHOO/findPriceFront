@@ -5,9 +5,9 @@ import {connect} from 'react-redux';
 import * as searchActions from '../../store/modules/search';
 
 const SearchContainer = (props) => {
-    console.log(props.isSearched);
-    const handleSuccessSearch = ()=>{
-        props.successSearch();
+    
+    const handleSuccessSearch = (searchedData)=>{
+        props.successSearch(searchedData[0]);
     }
     const handleFailSearch = ()=>{
         props.failSearch();
@@ -23,10 +23,10 @@ const SearchContainer = (props) => {
 
 export default connect(
     (state) => ({
-        isSearched:state.search.isSearched
+        isSearched:state.search.isSearched,
     }),
     (dispatch) => ({
-        successSearch:()=>dispatch(searchActions.successSearch()),
+        successSearch:(searchedData)=>dispatch(searchActions.successSearch(searchedData)),
         failSearch:() => dispatch(searchActions.failSearch())
     })
 )(SearchContainer);
