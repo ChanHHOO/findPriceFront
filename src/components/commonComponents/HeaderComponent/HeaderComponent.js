@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Search, Grid, Segment } from 'semantic-ui-react'
 import logo from "../../../images/logo2.jpg"
 import styled from "styled-components"
@@ -19,6 +19,7 @@ const Header = styled.div`
     .searchForm{{
         margin-left:13em;
     }}
+    margin-bottom:100px;
 `
 
 
@@ -31,10 +32,19 @@ const initialState = {
                 //     </span>
                 // </Grid.Row>
 
-const HeaderComponent = () => {
-    //const SearchContainer = props;
+const HeaderComponent = (props) => {
+
+    const [headerHeight, setHeaderHeight] = useState("");
+
+    useEffect(()=>{
+        const headerHeightElement = document.getElementById("header");
+        
+        setHeaderHeight(getComputedStyle(headerHeightElement).height)
+        
+
+    })
     return(
-        <Header>
+        <Header headerHeight={headerHeight} className={"header"} id={"header"}>
             <Grid 
                 columns={5}
             >
