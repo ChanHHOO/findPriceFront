@@ -1,21 +1,23 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-import ResultComponent from '../../components/ResultComponent/ResultComponent';
-import {connect} from 'react-redux';
+import {useSelector, connect} from 'react-redux';
+import ResultBodyComponent from '../../components/ResultComponent/ResultBodyComponent';
 import * as searchActions from '../../store/modules/search';
 
 const ResultContainer = (props) => {
     return (
-        <>
-            <ResultComponent searchedItem={props.isSearched}></ResultComponent>
-        </>
-        
+        <div>
+            <ResultBodyComponent searchedData={props.searchedData}/>
+        </div>        
     )
 }
 
 
 export default connect(
     (state) => ({
-        isSearched:state.search.isSearched
+        searchedData:state.search.searchedData,
+    }),
+    (dispatch) => ({
+        successSearch:()=>dispatch(searchActions.successSearch()),
+        
     })
 )(ResultContainer);

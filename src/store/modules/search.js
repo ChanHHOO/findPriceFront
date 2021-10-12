@@ -11,12 +11,14 @@ export const failSearch = createAction(FAIL_SEARCE);
 // initial state
 const initialState = {
     isSearched:false,
+    searchedData:{},
 };
 
 // reducer
 export default handleActions({
     [SUCCESS_SEARCHE]:(state, action)=>{
-        return {isSearched:true};
+        console.log(state, action)
+        return {searchedData:action.payload};
     },
     [FAIL_SEARCE]:(state, action) => {
         return {isSearched:false};
