@@ -5,11 +5,6 @@ const Margin = styled.div`
     min-height:${props=>props.headerHeight}
 `
 
-
-const initialState = {
-
-}
-
 const MarginComponent = (props) => {
 
     const [headerHeight, setHeaderHeight] = useState("");
