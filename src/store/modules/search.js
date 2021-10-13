@@ -11,7 +11,16 @@ export const failSearch = createAction(FAIL_SEARCE);
 // initial state
 const initialState = {
     isSearched:false,
-    searchedData:{},
+    searchedData:{
+        article_avrPrice:"",
+        article_id:"",
+        article_maxImgStr:"",
+        article_maxPrice:"",
+        article_minImgStr:"",
+        article_minPrice:"",
+        article_title:"",
+    },
+
 };
 
 // reducer

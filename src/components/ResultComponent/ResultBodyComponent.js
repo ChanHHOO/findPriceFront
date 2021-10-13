@@ -3,19 +3,24 @@ import { Search, Grid, Segment, Card, Image } from 'semantic-ui-react'
 import styled from "styled-components"
 import { VictoryBar, VictoryChart, VictoryTheme, VictoryAxis } from 'victory';
 import exampleItem from "../../images/exampleItem.jpg"
+
+import UpdateButtonComponent from "./UpdateButtonComponent";
+
 const ResultBody = styled.div`
+    display:flex;
+    justify-content:center;
     min-width:70em;
+    margin-top:2em;
     font-size:1em;
     .priceDescription{
         font-size:2.5em;
     };
     .lowAndHigh{
         margin-top:1em;
-        margin-left:8em;
         margin-bottom:2em;
     }
     .cautionDescription{
-        font-size:2.5em;
+        font-size:1.5em;
     }
     .orangeColor{
         font-color:#FF7E36;
@@ -26,10 +31,13 @@ const ResultBody = styled.div`
 
     }
     .VictoryContainer{
-        margin-left:10em;
     }
     .priceSection{
         padding-top:2em;
+    }
+    .itemTitle{
+        font-size:2em;
+        margin-right:1em;
     }
 `
 
@@ -108,18 +116,33 @@ const ResultBodyComponent = (props) => {
     const [state, setState] = useState(initialState);
     
     var handledGraphData = handleGraphData(state.graphData);
+    useEffect(()=>{
+
+    })
     
     return(
         <ResultBody>
             <Segment.Group>
+                <Segment>
+                    <div>
+                        <span className={"itemTitle"}> 
+                            검색 상품 : 삼성 에어컨 
+                        </span>
+                        <UpdateButtonComponent />
+                    </div>
+                    <span style={{color:"grey"}}>
+                        최근 업데이트 : 1시간 전
+                    </span>
+                    
+                </Segment>
                 <Segment className={"priceSection"}>
-                    <span className={"priceDescription"}>{state.searchedItem.itemName}의 평균 가격은 {averagePrice}원 입니다.</span>
+                    <span className={"priceDescription"}> 평균 가격 : {averagePrice}원</span>
                     
                     <Grid columns={2} className={"lowAndHigh"}>
                         <Grid.Column>                   
                             <Card>
                                 최소가 상품
-                                <Image src={article_minImgStr}/>
+                                <Image src={exampleItem}/>
                                 <Card.Content>
                                     
                                     <Card.Header>{state.lowestItem.itemName}</Card.Header>
@@ -143,8 +166,8 @@ const ResultBodyComponent = (props) => {
                     
                 </Segment>
                 
-                <Segment className={"chartSection"}>
-                    <span className={"cautionDescription"} style={{marginLeft:"8em"}}>판매 금액 구간별 그래프</span>
+                <Segment className={"chartSection"} textAlign={"center"}>
+                    <span className={"cautionDescription"}>판매 금액 구간별 그래프</span>
                     <VictoryChart 
                         className={"chartContent"}
                         domainPadding={{x:20}}

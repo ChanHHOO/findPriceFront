@@ -2,12 +2,17 @@ import React from 'react';
 import {useSelector, connect} from 'react-redux';
 import ResultBodyComponent from '../../components/ResultComponent/ResultBodyComponent';
 import * as searchActions from '../../store/modules/search';
+import { Redirect } from "react-router";
 
 const ResultContainer = (props) => {
     return (
-        <div>
-            <ResultBodyComponent searchedData={props.searchedData}/>
-        </div>        
+        true? 
+        <ResultBodyComponent searchedData={props.searchedData}></ResultBodyComponent> 
+        :
+        <Redirect
+            to={{
+                pathname: '/'
+        }}/>    
     )
 }
 
