@@ -30,8 +30,6 @@ const SearchComponent = (props) => {
                 onSuccessSearch(res.data);
                 // --------------------------
 
-                
-
                 setIsSuccess(true);
                 setItemName("");
             })
@@ -43,12 +41,6 @@ const SearchComponent = (props) => {
     useEffect(()=>{}, [isSuccess])
 
     return(
-        isSuccess?
-        <Redirect 
-            to={{
-                pathname:'/search'
-            }}/>
-        :
         <div>
             <Search 
                 value={itemName}

@@ -136,16 +136,16 @@ const ResultBodyComponent = (props) => {
                     
                 </Segment>
                 <Segment className={"priceSection"}>
-                    <span className={"priceDescription"}> 평균 가격 : {averagePrice}원</span>
+                    <span className={"priceDescription"}> 평균 가격 : {article_avrPrice}원</span>
                     
                     <Grid columns={2} className={"lowAndHigh"}>
                         <Grid.Column>                   
                             <Card>
                                 최소가 상품
-                                <Image src={exampleItem}/>
+                                <Image src={article_minImgStr}/>
                                 <Card.Content>
                                     
-                                    <Card.Header>{state.lowestItem.itemName}</Card.Header>
+                                    
                                     <Card.Description>{article_minPrice}원</Card.Description>
                                 </Card.Content>
                             </Card>
@@ -155,7 +155,7 @@ const ResultBodyComponent = (props) => {
                                 최대가 상품
                                 <Image src={ article_maxImgStr}/>
                                 <Card.Content>
-                                    <Card.Header>{state.highestItem.itemName}</Card.Header>
+                                    
                                     <Card.Description>{article_maxPrice}원</Card.Description>
                                 </Card.Content>
                             </Card>

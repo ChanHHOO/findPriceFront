@@ -27,32 +27,44 @@ const HeaderComponent = (props) => {
 
     const [headerHeight, setHeaderHeight] = useState("");
     const [isClickedLogo, setIsClickedLogo] = useState(false);
-
+    
     const onClickLogo = ()=>{
 
         window.location.href = "/"
     }
 
     useEffect(()=>{
-        
+        console.log(props.isSearched)
     })
 
-    return(
+    return (
+
+        <>
+            <Header className={"header"} id={"header"}>
+
+                <Grid
+                    columns={5}
+                >
+                    <Grid.Column className={"logo"}>
+                        <img onClick={onClickLogo} className={"logoImg"} src={logo}></img>
+                    </Grid.Column>
+                    <Grid.Column className={"searchForm"} verticalAlign={"middle"}>
+                        <SearchContainer />
+                    </Grid.Column>
+                </Grid>
+            </Header>
+            {
+                props.isSearched ?
+                    <Redirect to={{ pathname: '/search' }}/>
+                :
+                <></>
+            }
 
 
-        <Header className={"header"} id={"header"}>
+        </>
 
-            <Grid
-                columns={5}
-            >
-                <Grid.Column className={"logo"}>
-                    <img onClick={onClickLogo} className={"logoImg"} src={logo}></img>
-                </Grid.Column>
-                <Grid.Column className={"searchForm"} verticalAlign={"middle"}>
-                    <SearchContainer />
-                </Grid.Column>
-            </Grid>
-        </Header>
+
+
 
     )
 }

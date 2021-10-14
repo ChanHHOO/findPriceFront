@@ -27,7 +27,11 @@ const initialState = {
 export default handleActions({
     [SUCCESS_SEARCHE]:(state, action)=>{
         console.log(state, action)
-        return {searchedData:action.payload};
+        return {
+            searchedData:action.payload,
+            isSearched:true,
+        
+        };
     },
     [FAIL_SEARCE]:(state, action) => {
         return {isSearched:false};

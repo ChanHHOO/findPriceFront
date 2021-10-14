@@ -8,7 +8,6 @@ import MainContainer from './containers/MainContainer/MainContainer'
 import HeaderContainer from './containers/HeaderContainer/HeaderContainer';
 import ResultPage from "./pages/Result"
 
-
 class App extends Component{
   render(){
     return (
