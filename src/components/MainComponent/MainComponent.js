@@ -21,6 +21,8 @@ const Main = styled.div`
     }}
     .description{
         font-size:3em;
+
+
     },
     .firstTitle{
         margin-bottom:1em;
