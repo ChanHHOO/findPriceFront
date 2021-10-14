@@ -11,17 +11,20 @@ const Main = styled.div`
     .mainComponent{{
         min-height:50em;
         padding-top:10em;
+        display:flex;
+        justify-content:center;
     }}
     .textSection{{
+        margin-right:10em;
         margin-top:10em;
+        
     }}
     .description{
         font-size:3em;
-        margin-left:7em;
     },
-    .tradeImage{
-        
-    }
+    .firstTitle{
+        margin-bottom:1em;
+    },
 `
 
 const MainComponent = (props) => {
@@ -32,21 +35,26 @@ const MainComponent = (props) => {
 
         <Main>
 
-            <Grid className={"mainComponent"}>
-                <Grid.Column 
-                    width={8}
-                    className={"textSection"}
-                    >
-                    <span className={"description"}>
-                        팔고싶은 당신의 물건 과연 얼마일까?
-                    </span>
 
-                </Grid.Column>
-                <Grid.Column>
-                    <img className={"tradeImage"} src={tradeImage}></img>
-                </Grid.Column>
-            </Grid>
-            
+            <div className={"mainComponent"}>
+                <div className={"textSection"}>
+                    <div className={"firstTitle"}>
+                        <span className={"description"}>
+                            팔고싶은 당신의 물건
+                        </span>
+                    </div>
+                    <div>
+                        <span className={"description"} >
+                            과연 얼마일까?
+                        </span>
+                    </div>
+                </div>
+
+                <div className={"imageSection"} >
+                    <img src={tradeImage}></img>
+                </div>
+            </div>
+
             {false && <Redirect to="/search" />}
         </Main>
     )
