@@ -7,7 +7,10 @@ const HeaderContainer = (props) => {
     console.log(props)
     return (
         <div>
-            <HeaderComponent getHeaderHeight={props.getHeaderHeight}></HeaderComponent>
+            <HeaderComponent 
+                getHeaderHeight={props.getHeaderHeight}
+                isSearched={props.isSearched}
+            />
         </div>
         
     )
@@ -15,7 +18,7 @@ const HeaderContainer = (props) => {
 
 export default connect(
     (state) => ({
-
+        isSearched:state.search.isSearched,
     }),
     (dispatch) => ({
         getHeaderHeight:(headerHeight)=>dispatch(headerActions.getHeaderHeight(headerHeight)),
