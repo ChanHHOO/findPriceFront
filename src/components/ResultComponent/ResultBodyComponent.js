@@ -117,8 +117,8 @@ const ResultBodyComponent = (props) => {
     
     var handledGraphData = handleGraphData(state.graphData);
     useEffect(()=>{
-
-    })
+        console.log("update")
+    }, [article_id])
     
     return(
         <ResultBody>
@@ -126,9 +126,9 @@ const ResultBodyComponent = (props) => {
                 <Segment>
                     <div>
                         <span className={"itemTitle"}> 
-                            검색 상품 : 삼성 에어컨 
+                            {article_title}
                         </span>
-                        <UpdateButtonComponent />
+                        <UpdateButtonComponent article_title={article_title} onSuccessUpdate={props.onSuccessSearch}/>
                     </div>
                     <span style={{color:"grey"}}>
                         최근 업데이트 : 1시간 전
@@ -136,7 +136,8 @@ const ResultBodyComponent = (props) => {
                     
                 </Segment>
                 <Segment className={"priceSection"}>
-                    <span className={"priceDescription"}> 평균 가격 : {article_avrPrice}원</span>
+                    <span className={"priceDescription"}> 평균 가격 : {article_avrPrice
+                    }원</span>
                     
                     <Grid columns={2} className={"lowAndHigh"}>
                         <Grid.Column>                   

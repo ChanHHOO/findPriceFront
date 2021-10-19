@@ -20,13 +20,12 @@ const SearchComponent = (props) => {
     const onSubmit = (e) => {
         
         if(e.code.includes("Enter")){
-            axios.post('http://localhost:8080/api/updateDaangnData',{
+            axios.post('http://localhost:8080/api/getDaangnData',{
                 searchItem:itemName,
                 searchCategory:"get",
             })
             .then((res) => {
                 // response value mapping code
-                console.log(res.data)
                 onSuccessSearch(res.data);
                 // --------------------------
 

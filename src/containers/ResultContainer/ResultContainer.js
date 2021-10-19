@@ -7,7 +7,10 @@ import { Redirect } from "react-router";
 const ResultContainer = (props) => {
     return (
         true? 
-        <ResultBodyComponent searchedData={props.searchedData}></ResultBodyComponent> 
+        <ResultBodyComponent 
+            searchedData={props.searchedData}
+            onSuccessSearch={props.successSearch}
+        ></ResultBodyComponent> 
         :
         <Redirect
             to={{
@@ -22,7 +25,6 @@ export default connect(
         searchedData:state.search.searchedData,
     }),
     (dispatch) => ({
-        successSearch:()=>dispatch(searchActions.successSearch()),
-        
+        successSearch:(searchedData)=>dispatch(searchActions.successSearch(searchedData)),
     })
 )(ResultContainer);
