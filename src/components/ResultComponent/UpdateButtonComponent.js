@@ -23,7 +23,7 @@ const UpdateButtonComponent = (props) => {
         .then((res) => {
             // response value mapping code
             console.log(res.data)
-            props.onSuccessUpdate(res.data)
+            props.onSuccessUpdate(res.data[res.data.length - 1])
             // --------------------------
         })
         .catch((err) => {
@@ -33,7 +33,7 @@ const UpdateButtonComponent = (props) => {
 
 
     return(
-        <Button onClick={onClickUpdateButton} inverted color={"purple"}>
+        <Button onClick={onClickUpdateButton} inverted color={"pink"}>
             업데이트
         </Button>
     )

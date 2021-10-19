@@ -5,11 +5,17 @@ import * as searchActions from '../../store/modules/search';
 import { Redirect } from "react-router";
 
 const ResultContainer = (props) => {
+    const handleSuccessSearch = (updateedData)=>{
+        props.successSearch(updateedData)
+    }
+
+
+
     return (
         true? 
         <ResultBodyComponent 
             searchedData={props.searchedData}
-            onSuccessSearch={props.successSearch}
+            onSuccessSearch={handleSuccessSearch}
         ></ResultBodyComponent> 
         :
         <Redirect

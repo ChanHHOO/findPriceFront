@@ -117,8 +117,20 @@ const ResultBodyComponent = (props) => {
     
     var handledGraphData = handleGraphData(state.graphData);
     useEffect(()=>{
-        console.log("update")
-    }, [article_id])
+        console.log(article_avrPrice,
+            article_id,
+            article_maxImgStr,
+            article_maxPrice,
+            article_minImgStr,
+            article_minPrice,
+            article_title,)
+    }, [article_avrPrice,
+        article_id,
+        article_maxImgStr,
+        article_maxPrice,
+        article_minImgStr,
+        article_minPrice,
+        article_title,])
     
     return(
         <ResultBody>

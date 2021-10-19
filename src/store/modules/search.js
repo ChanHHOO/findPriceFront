@@ -20,7 +20,6 @@ const initialState = {
         article_minPrice:"",
         article_title:"",
     },
-
 };
 
 // reducer
