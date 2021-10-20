@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import { Search, Grid, Segment, Card, Image } from 'semantic-ui-react'
 import styled from "styled-components"
 import { VictoryBar, VictoryChart, VictoryTheme, VictoryAxis } from 'victory';
@@ -100,37 +100,31 @@ const handleGraphData = (clowlingData)=>{
 
 }
 
-const ResultBodyComponent = (props) => {
-    const totalItemCount = props.totalItemCount || 865;
-    const averagePrice = props.averagePrice || 35053351 ;
-    const {
-        article_avrPrice,
-        article_id,
-        article_maxImgStr,
-        article_maxPrice,
-        article_minImgStr,
-        article_minPrice,
-        article_title,
-    } = props.searchedData;
-    console.log(props.searchedData)
-    const [state, setState] = useState(initialState);
+const getLastUpdateTimeString = (article_updateTime)=>{
+    const today = new Date();
+    const lastUpdateDate = new Date(article_updateTime)
+
     
+
+    const betweenTime = Math.floor((today.getTime() - lastUpdateDate.getTime()) / 1000 / 60);
+    console.log(betweenTime)
+    if (betweenTime < 1) return "방금 전";
+    if(betweenTime < 60) return `${betweenTime}분 전`;
+    
+    const betweenTimeHour = Math.floor(betweenTime / 60);
+    console.log(betweenTimeHour)
+    if (betweenTimeHour < 24) return `${betweenTimeHour}시간 전`;
+    
+    const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+    console.log(betweenTimeDay)
+    if (betweenTimeDay < 365) return`${betweenTimeDay}일 전`
+
+}
+
+
+const ResultBodyComponent = (props) => {
+    const [state, setState] = useState(initialState);
     var handledGraphData = handleGraphData(state.graphData);
-    useEffect(()=>{
-        console.log(article_avrPrice,
-            article_id,
-            article_maxImgStr,
-            article_maxPrice,
-            article_minImgStr,
-            article_minPrice,
-            article_title,)
-    }, [article_avrPrice,
-        article_id,
-        article_maxImgStr,
-        article_maxPrice,
-        article_minImgStr,
-        article_minPrice,
-        article_title,])
     
     return(
         <ResultBody>
@@ -138,43 +132,42 @@ const ResultBodyComponent = (props) => {
                 <Segment>
                     <div>
                         <span className={"itemTitle"}> 
-                            {article_title}
+                            {props.searchedData.article_title}
                         </span>
-                        <UpdateButtonComponent article_title={article_title} onSuccessUpdate={props.onSuccessSearch}/>
+                        <UpdateButtonComponent article_title={props.searchedData.article_title} onSuccessUpdate={props.onSuccessSearch}/>
                     </div>
                     <span style={{color:"grey"}}>
-                        최근 업데이트 : 1시간 전
+                        최근 업데이트 : {getLastUpdateTimeString(props.searchedData.article_updateTime)}
                     </span>
                     
                 </Segment>
                 <Segment className={"priceSection"}>
-                    <span className={"priceDescription"}> 평균 가격 : {article_avrPrice
-                    }원</span>
+                    <span className={"priceDescription"}> 평균 가격 : {props.searchedData.article_avrPrice}원</span>
                     
                     <Grid columns={2} className={"lowAndHigh"}>
                         <Grid.Column>                   
                             <Card>
-                                최소가 상품
-                                <Image src={article_minImgStr}/>
+                                최소가 상품 : {props.searchedData.article_minArticleTitle}
+                                <Image src={props.searchedData.article_minImgStr}/>
                                 <Card.Content>
                                     
                                     
-                                    <Card.Description>{article_minPrice}원</Card.Description>
+                                    <Card.Description>{props.searchedData.article_minPrice}원</Card.Description>
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
                         <Grid.Column>                   
                             <Card>
-                                최대가 상품
-                                <Image src={ article_maxImgStr}/>
+                                최대가 상품 : {props.searchedData.article_maxArticleTitle}
+                                <Image src={ props.searchedData.article_maxImgStr}/>
                                 <Card.Content>
                                     
-                                    <Card.Description>{article_maxPrice}원</Card.Description>
+                                    <Card.Description>{props.searchedData.article_maxPrice}원</Card.Description>
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
                     </Grid>
-                    <span className={"cautionDescription"}>※ 평균 가격은 <span style={{color:"#FF7E36"}} >당근마켓</span>에서 판매중인 상품 {totalItemCount}개에 대한 가격 입니다.</span>
+                    <span className={"cautionDescription"}>※ 평균 가격은 <span style={{color:"#FF7E36"}} >당근마켓</span>에서 판매중인 상품 {props.searchedData.article_count}개에 대한 가격 입니다.</span>
                     
                     
                 </Segment>

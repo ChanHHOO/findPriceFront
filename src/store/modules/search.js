@@ -19,6 +19,11 @@ const initialState = {
         article_minImgStr:"",
         article_minPrice:"",
         article_title:"",
+        article_maxArticleTitle:"",
+        article_minArticleTitle:"",
+        article_count:"",
+        article_updateTime:"",
+
     },
 };
 

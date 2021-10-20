@@ -4,7 +4,6 @@ import HeaderComponent from "../../components/commonComponents/HeaderComponent/H
 import * as headerActions from '../../store/modules/header';
 
 const HeaderContainer = (props) => {
-    console.log(props)
     return (
         <div>
             <HeaderComponent 

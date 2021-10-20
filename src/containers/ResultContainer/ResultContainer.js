@@ -5,8 +5,8 @@ import * as searchActions from '../../store/modules/search';
 import { Redirect } from "react-router";
 
 const ResultContainer = (props) => {
-    const handleSuccessSearch = (updateedData)=>{
-        props.successSearch(updateedData)
+    const handleSuccessSearch = (updatedData)=>{
+        props.successSearch(updatedData)
     }
 
 

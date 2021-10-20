@@ -34,7 +34,7 @@ const HeaderComponent = (props) => {
     }
 
     useEffect(()=>{
-        console.log(props.isSearched)
+        
     })
 
     return (
