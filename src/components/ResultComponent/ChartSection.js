@@ -79,11 +79,11 @@ const ChartSectionComponent = (props) => {
                 domainPadding={{ x: 20 }}
             >
                 <VictoryAxis
-                    label={"판매 금액"}
+                    label={"판매 금액 /" + " 단위 : " +unit}
                     tickFormat={chartDomain}
                 />
                 <VictoryAxis
-                    label={"물량 갯수"}
+                    label={"게시글 갯수"}
                     dependentAxis
                     tickFormat={chartDatas}
                 />
