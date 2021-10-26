@@ -4,7 +4,10 @@ import styled from "styled-components"
 import { VictoryBar, VictoryChart, VictoryTheme, VictoryAxis } from 'victory';
 import exampleItem from "../../images/exampleItem.jpg"
 
+
 import UpdateButtonComponent from "./UpdateButtonComponent";
+import ChartSectionComponent from "./ChartSection";
+import {getDomainString, getLastUpdateTimeString} from "../../module/stringProccessing";
 
 const ResultBody = styled.div`
     display:flex;
@@ -25,13 +28,7 @@ const ResultBody = styled.div`
     .orangeColor{
         font-color:#FF7E36;
     }
-    .chartSection{
-        padding-top:3em;
-        max-width:50em;
 
-    }
-    .VictoryContainer{
-    }
     .priceSection{
         padding-top:2em;
     }
@@ -41,90 +38,7 @@ const ResultBody = styled.div`
     }
 `
 
-
-const initialState = {
-    searchedItem : {
-        itemName:"삼성 에어컨",
-        
-    },
-    highestItem:{
-        itemName:"삼성 무풍 에어컨",
-        price:"300000000",
-        img:exampleItem,
-    },
-    lowestItem:{
-        itemName:"삼성 싸구려 에어컨",
-        price:"3000",
-        img:exampleItem,
-    },
-    graphData:[5000000, 10000, 450000, 900000, 1124000, 1505000, 4000]
-}
-
-const handleGraphData = (clowlingData)=>{
-
-    
-    var sumPrice = 0;
-    clowlingData.sort();
-    var axisVal = clowlingData[clowlingData.length - 1] / 5
-    var xDomain = [axisVal*2, axisVal*3, axisVal*4, axisVal*5] // x축 값
-    // graphData 선언부
-    var gd = [
-        {x:xDomain[0], y:0},
-        {x:xDomain[1], y:0},
-        {x:xDomain[2], y:0},
-        {x:xDomain[3], y:0}
-    ];
-    
-    for(var i=0; i < clowlingData.length; i++){
-        for (var j=0; j<xDomain.length-1; j++){
-            if (clowlingData[i] > xDomain[j] && clowlingData[i] < xDomain[j+1]){
-                gd[j].y += 1;
-                break;
-            }
-            if (clowlingData[i] >= xDomain[3]){
-                gd[3].y += 1;
-                break;
-            }
-        }
-    }    
-    
-    // y축 값
-    
-    var maxY = 0
-    for(var i = 0; i < 4; i++){
-        if (maxY < gd[i].y) maxY = gd[i].y;
-    }
-    const yList = [Math.floor(maxY / 4), Math.floor(maxY / 3), Math.floor(maxY / 2), maxY];
-    
-    return {xList:xDomain, yList: yList, graphData: gd};
-
-}
-
-const getLastUpdateTimeString = (article_updateTime)=>{
-    const today = new Date();
-    const lastUpdateDate = new Date(article_updateTime)
-
-    
-
-    const betweenTime = Math.floor((today.getTime() - lastUpdateDate.getTime()) / 1000 / 60);
-    console.log(betweenTime)
-    if (betweenTime < 1) return "방금 전";
-    if(betweenTime < 60) return `${betweenTime}분 전`;
-    
-    const betweenTimeHour = Math.floor(betweenTime / 60);
-    console.log(betweenTimeHour)
-    if (betweenTimeHour < 24) return `${betweenTimeHour}시간 전`;
-    
-    const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
-    console.log(betweenTimeDay)
-    if (betweenTimeDay < 365) return`${betweenTimeDay}일 전`
-
-}
-
-
 const ResultBodyComponent = (props) => {
-    const [state, setState] = useState(initialState);
-    var handledGraphData = handleGraphData(state.graphData);
     
     return(
         <ResultBody>
@@ -172,29 +86,7 @@ const ResultBodyComponent = (props) => {
                     
                 </Segment>
                 
-                <Segment className={"chartSection"} textAlign={"center"}>
-                    <span className={"cautionDescription"}>판매 금액 구간별 그래프</span>
-                    <VictoryChart 
-                        className={"chartContent"}
-                        domainPadding={{x:20}}
-                    >
-                        <VictoryAxis
-                            label={"판매 금액"}
-                            tickFormat={handledGraphData.xList}
-                        />
-                        <VictoryAxis
-                            label={"물량 갯수"}
-                            dependentAxis
-                            tickFormat={handledGraphData.yList}
-                        />
-                        <VictoryBar
-                            data = {handledGraphData.graphData}
-                            x = "x"
-                            y = "y"
-                        />
-                        
-                    </VictoryChart>
-                </Segment>
+                <ChartSectionComponent searchedData={props.searchedData}/>
             </Segment.Group>
             
         </ResultBody>

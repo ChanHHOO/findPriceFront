@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //https://velog.io/@velopert/react-redux-hooks
 import { Search, Grid, Segment } from 'semantic-ui-react'
 import styled from "styled-components"
@@ -17,12 +17,11 @@ const Main = styled.div`
     .textSection{{
         margin-right:10em;
         margin-top:10em;
+        min-width:${props=>props.textSectionMinWidth}px;
         
     }}
     .description{
         font-size:3em;
-
-
     },
     .firstTitle{
         margin-bottom:1em;
@@ -32,10 +31,15 @@ const Main = styled.div`
 const MainComponent = (props) => {
 
 
+    const [textSectionMinWidth, setTextSectionMinWidth] = useState("10px")
+
+    useEffect(()=>{
+        setTextSectionMinWidth(document.getElementsByClassName("firstTitle")[0].offsetWidth); 
+    })
 
     return(
 
-        <Main>
+        <Main textSectionMinWidth = {textSectionMinWidth}>
 
 
             <div className={"mainComponent"}>

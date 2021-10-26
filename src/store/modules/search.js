@@ -23,7 +23,14 @@ const initialState = {
         article_minArticleTitle:"",
         article_count:"",
         article_updateTime:"",
-
+        chartDomain_firstX:"",
+        chartDomain_secondX:"",
+        chartDomain_thirdX:"",
+        chartDomain_fourthX:"",
+        chartData_firstY:0,
+        chartData_secondY:0,
+        chartData_thirdY:0,
+        chartData_fourthY:0,
     },
 };
 

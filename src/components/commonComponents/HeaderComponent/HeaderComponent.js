@@ -7,19 +7,26 @@ import { Redirect } from "react-router";
 import SearchContainer from "../../../containers/SearchContainer/SearchContainer";
 
 const Header = styled.div`
+    display:flex;
+    justify-content:center;
     position: fixed;
     width:100%;
     z-index:99;
     background-color:white;
     font-size: 30px;
+    margin-bottom:100px;
     .logoImg{
         height:3em;
     }
     border-bottom: solid 1.5px rgba(188,188,188,9);
     .searchForm{{
-        margin-left:13em;
+        margin-left:10em;
+        margin-top:0.5em;
     }}
-    margin-bottom:100px;
+    
+    .headerContents{
+        display:flex;
+    }
 `
 
 
@@ -41,17 +48,14 @@ const HeaderComponent = (props) => {
 
         <>
             <Header className={"header"} id={"header"}>
-
-                <Grid
-                    columns={5}
-                >
-                    <Grid.Column className={"logo"}>
+                <div className={"headerContents"}>
+                    <div className={"logo"}>
                         <img onClick={onClickLogo} className={"logoImg"} src={logo}></img>
-                    </Grid.Column>
-                    <Grid.Column className={"searchForm"} verticalAlign={"middle"}>
+                    </div>
+                    <div className={"searchForm"}>
                         <SearchContainer />
-                    </Grid.Column>
-                </Grid>
+                    </div>
+                </div>
             </Header>
             {
                 props.isSearched ?

@@ -13,7 +13,7 @@ const MarginComponent = (props) => {
         const headerHeightElement = document.getElementById("header");
         setHeaderHeight(getComputedStyle(headerHeightElement).height)
         
-    })
+    },[])
     return(
         <Margin headerHeight={headerHeight}></Margin>
     )
