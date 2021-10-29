@@ -35,23 +35,17 @@ const HeaderComponent = (props) => {
     const [headerHeight, setHeaderHeight] = useState("");
     const [isClickedLogo, setIsClickedLogo] = useState(false);
     
-    const onClickLogo = ()=>{
-
-        window.location.href = "/"
-    }
-
-    useEffect(()=>{
-        
-    })
-
     return (
 
         <>
             <Header className={"header"} id={"header"}>
                 <div className={"headerContents"}>
                     <div className={"logo"}>
-                        <img onClick={onClickLogo} className={"logoImg"} src={logo}></img>
+                        <a href={"/"}>
+                            <img className={"logoImg"} src={logo}></img>
+                        </a>
                     </div>
+
                     <div className={"searchForm"}>
                         <SearchContainer />
                     </div>
@@ -63,8 +57,6 @@ const HeaderComponent = (props) => {
                 :
                 <></>
             }
-
-
         </>
 
 

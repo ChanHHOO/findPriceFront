@@ -12,8 +12,10 @@ import {getDomainString, getLastUpdateTimeString} from "../../module/stringProcc
 const ResultBody = styled.div`
     display:flex;
     justify-content:center;
+    padding-top:2em;
+    padding-bottom:5em;
+    background-color:#FBF7F2;
     min-width:70em;
-    margin-top:2em;
     font-size:1em;
     .priceDescription{
         font-size:2.5em;
