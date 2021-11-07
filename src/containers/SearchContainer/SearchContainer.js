@@ -13,11 +13,13 @@ const SearchContainer = (props) => {
     const handleFailSearch = ()=>{
         props.failSearch();
     }
+    
     return (
         <SearchComponent  
             onSuccessSearch={handleSuccessSearch}
             onFailSearch={handleFailSearch}
             isSearched={props.isSearched}
+            startSearch = {props.startSearch}
         />
     )
 }
@@ -28,6 +30,7 @@ export default connect(
     }),
     (dispatch) => ({
         successSearch:(searchedData)=>dispatch(searchActions.successSearch(searchedData)),
-        failSearch:() => dispatch(searchActions.failSearch())
+        failSearch:() => dispatch(searchActions.failSearch()),
+        startSearch:()=>dispatch(searchActions.startSearch()),
     })
 )(SearchContainer);

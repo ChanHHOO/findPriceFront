@@ -83,9 +83,7 @@ const ResultBodyComponent = (props) => {
                             </Card>
                         </Grid.Column>
                     </Grid>
-                    <span className={"cautionDescription"}>※ 평균 가격은 <span style={{color:"#FF7E36"}} >당근마켓</span>에서 판매중인 상품 {props.searchedData.article_count}개에 대한 가격 입니다.</span>
-                    
-                    
+                    <span className={"cautionDescription"}>※ 평균 가격은 <span style={{color:"#FF7E36"}} >당근마켓</span>에서 판매중인 상품 {props.searchedData.article_count}개에 대한 가격 입니다.</span>        
                 </Segment>
                 
                 <ChartSectionComponent searchedData={props.searchedData}/>

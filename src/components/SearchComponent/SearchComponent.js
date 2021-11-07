@@ -11,6 +11,7 @@ const _Search = styled.div`
 const SearchComponent = (props) => {
     const [itemName, setItemName] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
+    const [startSearch, setStartSearch] = useState(false);
     const {onSuccessSearch, onFailSearch, isSearched} = props;
     const onChangeInput = (e) => {
         //console.log(test)
@@ -20,6 +21,7 @@ const SearchComponent = (props) => {
     const onSubmit = (e) => {
         
         if(e.code.includes("Enter")){
+            props.startSearch();
             axios.post('http://localhost:8080/api/getDaangnData',{
                 searchItem:itemName,
                 searchCategory:"get",
@@ -46,6 +48,8 @@ const SearchComponent = (props) => {
                 size={"mini"}
                 onSearchChange={onChangeInput} 
                 onKeyPress={onSubmit}/>
+            
+            
         </div>
 
 

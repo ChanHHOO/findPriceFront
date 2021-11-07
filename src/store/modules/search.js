@@ -3,10 +3,13 @@ import { createAction, handleActions } from 'redux-actions';
 // action type define
 const SUCCESS_SEARCHE = 'search/SUCCESS_SEARCHE';
 const FAIL_SEARCE = 'search/FAIL_SEARCE'
+const START_SEARCHE = 'search/START_SEARCHE';
+
 
 // action create function define
 export const successSearch = createAction(SUCCESS_SEARCHE);
 export const failSearch = createAction(FAIL_SEARCE);
+export const startSearch = createAction(START_SEARCHE);
 
 // initial state
 const initialState = {
@@ -32,6 +35,7 @@ const initialState = {
         chartData_thirdY:0,
         chartData_fourthY:0,
     },
+    startSearch:false,
 };
 
 // reducer
@@ -41,10 +45,13 @@ export default handleActions({
         return {
             searchedData:action.payload,
             isSearched:true,
-        
+            startSearch:false,
         };
     },
     [FAIL_SEARCE]:(state, action) => {
         return {isSearched:false};
-    }
+    },
+    [START_SEARCHE]:(state, action) => {
+        return {startSearch:true}
+    },
 }, initialState);

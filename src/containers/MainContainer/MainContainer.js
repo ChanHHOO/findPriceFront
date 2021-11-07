@@ -8,7 +8,7 @@ import * as headerActions from '../../store/modules/header';
 const MainContainer = (props) => {
     return (
         <div>
-            <MainComponent></MainComponent>
+            <MainComponent startSearch={props.startSearch}></MainComponent>
         </div>
         
     )
@@ -16,6 +16,7 @@ const MainContainer = (props) => {
 
 export default connect(
     (state) => ({
+        startSearch:state.search.startSearch,
     }),
     (dispatch) => ({
         getHeaderHeight:(headerHeight)=>dispatch(headerActions.getHeaderHeight(headerHeight)),
