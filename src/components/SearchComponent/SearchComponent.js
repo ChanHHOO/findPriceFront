@@ -3,7 +3,7 @@ import { Search, Grid, Header, Form, Button } from 'semantic-ui-react'
 import styled from "styled-components"
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
-
+import LoadingComponent from "../commonComponents/LoadingComponent";
 const _Search = styled.div`
 
 
@@ -24,8 +24,9 @@ const SearchComponent = (props) => {
             console.log("search")
             if(!isSearched){
                 props.startSearch();
+                
             }
-            
+            setStartSearch(true)
             axios.post('http://localhost:8080/api/getDaangnData',{
                 searchItem:itemName,
                 searchCategory:"get",
@@ -36,6 +37,7 @@ const SearchComponent = (props) => {
                 // --------------------------
                 setIsSuccess(true);
                 setItemName("");
+                setStartSearch(false);
             })
             .catch((err) => {
                 console.log(err);
@@ -44,16 +46,18 @@ const SearchComponent = (props) => {
     }
     useEffect(()=>{}, [isSuccess])
 
-    return(
-        <div>
-            <Search 
-                value={itemName}
-                size={"mini"}
-                onSearchChange={onChangeInput} 
-                onKeyPress={onSubmit}/>
-        </div>
-
-
-    )
+    return (
+      <div>
+        <Search
+          value={itemName}
+          size={"mini"}
+          onSearchChange={onChangeInput}
+          onKeyPress={onSubmit}
+        />
+        {
+            startSearch ? <LoadingComponent /> : <></>
+        }
+      </div>
+    );
 }
 export default SearchComponent;

@@ -41,3 +41,5 @@ const LoadingComponent = (props) =>{
       </Loading>
     );
 }
+
+export default LoadingComponent;

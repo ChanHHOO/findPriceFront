@@ -97,11 +97,6 @@ const MainComponent = (props) => {
                 </div>
                 {false && <Redirect to="/search" />}
             </Main>
-            {props.startSearch ?
-                <LoadingComponent />
-                :
-                <></>
-            }
         </>
 
         
