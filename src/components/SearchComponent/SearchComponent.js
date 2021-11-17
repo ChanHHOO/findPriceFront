@@ -19,9 +19,13 @@ const SearchComponent = (props) => {
         //console.log(e.target.value)
     }
     const onSubmit = (e) => {
-        
+        console.log(isSearched)
         if(e.code.includes("Enter")){
-            props.startSearch();
+            console.log("search")
+            if(!isSearched){
+                props.startSearch();
+            }
+            
             axios.post('http://localhost:8080/api/getDaangnData',{
                 searchItem:itemName,
                 searchCategory:"get",
@@ -30,7 +34,6 @@ const SearchComponent = (props) => {
                 // response value mapping code
                 onSuccessSearch(res.data);
                 // --------------------------
-
                 setIsSuccess(true);
                 setItemName("");
             })
@@ -48,8 +51,6 @@ const SearchComponent = (props) => {
                 size={"mini"}
                 onSearchChange={onChangeInput} 
                 onKeyPress={onSubmit}/>
-            
-            
         </div>
 
 

@@ -5,6 +5,7 @@ import styled from "styled-components"
 import tradeImage from "../../images/tradeImage3.png"
 import { Redirect } from "react-router-dom";
 import ReactLoading from "react-loading";
+import LoadingComponent from "../commonComponents/LoadingComponent";
 
 const Main = styled.div`
     position:relative;
@@ -97,12 +98,7 @@ const MainComponent = (props) => {
                 {false && <Redirect to="/search" />}
             </Main>
             {props.startSearch ?
-                <Loading 
-                    bodyWidth={bodyWidth}
-                    bodyHeight={bodyHeight}>
-                    <ReactLoading type={"spin"} color={"#E37084"} />
-                    <span>Loading...</span>
-                </Loading>
+                <LoadingComponent />
                 :
                 <></>
             }

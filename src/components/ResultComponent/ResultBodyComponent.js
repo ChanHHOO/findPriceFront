@@ -39,9 +39,9 @@ const ResultBody = styled.div`
         margin-right:1em;
     }
 `
-
 const ResultBodyComponent = (props) => {
-    
+    console.log("resultBody" + props.searchedData);
+
     return(
         <ResultBody>
             <Segment.Group>
