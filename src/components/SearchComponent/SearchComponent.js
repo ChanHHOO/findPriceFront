@@ -24,7 +24,6 @@ const SearchComponent = (props) => {
             console.log("search")
             if(!isSearched){
                 props.startSearch();
-                
             }
             setStartSearch(true)
             axios.post('http://localhost:8080/api/getDaangnData',{

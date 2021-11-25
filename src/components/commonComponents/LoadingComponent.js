@@ -4,6 +4,7 @@ import ReactLoading from "react-loading";
 
 const Loading = styled.div`
     display: flex;
+    z-index: 999;
     align-items: center;
     flex-direction: column;
     justify-content: center;

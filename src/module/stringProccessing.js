@@ -2,7 +2,6 @@ export const getLastUpdateTimeString = (article_updateTime)=>{
     const today = new Date();
     const lastUpdateDate = new Date(article_updateTime)
     const betweenTime = Math.floor((today.getTime() - lastUpdateDate.getTime()) / 1000 / 60);
-    console.log(betweenTime)
     if (betweenTime < 1) return "방금 전";
     if(betweenTime < 60) return `${betweenTime}분 전`;
     

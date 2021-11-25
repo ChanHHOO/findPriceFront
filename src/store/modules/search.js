@@ -5,11 +5,19 @@ const SUCCESS_SEARCHE = 'search/SUCCESS_SEARCHE';
 const FAIL_SEARCE = 'search/FAIL_SEARCE'
 const START_SEARCHE = 'search/START_SEARCHE';
 
+const START_UPDATE = 'search/START_UPDATE';
+const SUCCESS_UPDATE = 'search/SUCCESS_UPDATE';
+const FAIL_UPDATE = 'search/FAIL_UPDATE';
+
 
 // action create function define
 export const successSearch = createAction(SUCCESS_SEARCHE);
 export const failSearch = createAction(FAIL_SEARCE);
 export const startSearch = createAction(START_SEARCHE);
+
+export const startUpdate = createAction(START_UPDATE);
+export const successUpdate = createAction(SUCCESS_UPDATE);
+export const failUpdate = createAction(FAIL_UPDATE);
 
 // initial state
 const initialState = {
@@ -36,6 +44,7 @@ const initialState = {
         chartData_fourthY:0,
     },
     startSearch:false,
+    isUpdate:false,
 };
 
 // reducer

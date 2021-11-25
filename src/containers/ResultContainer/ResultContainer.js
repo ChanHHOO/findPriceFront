@@ -15,7 +15,9 @@ const ResultContainer = (props) => {
         true? 
         <ResultBodyComponent 
             searchedData={props.searchedData}
+            startSearch={props.startSearch}
             onSuccessSearch={handleSuccessSearch}
+            handleStartSearch={props.handleStartSearch}
         ></ResultBodyComponent> 
         :
         <Redirect
@@ -29,8 +31,10 @@ const ResultContainer = (props) => {
 export default connect(
     (state) => ({
         searchedData:state.search.searchedData,
+        startSearch:state.search.startSearch,
     }),
     (dispatch) => ({
         successSearch:(searchedData)=>dispatch(searchActions.successSearch(searchedData)),
+        handleStartSearch:()=>dispatch(searchActions.startSearch()),
     })
 )(ResultContainer);
