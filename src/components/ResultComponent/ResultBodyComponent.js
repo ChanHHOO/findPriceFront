@@ -1,9 +1,6 @@
 import React, {useState, useEffect, useCallback} from "react";
 import { Search, Grid, Segment, Card, Image } from 'semantic-ui-react'
 import styled from "styled-components"
-import { VictoryBar, VictoryChart, VictoryTheme, VictoryAxis } from 'victory';
-import exampleItem from "../../images/exampleItem.jpg"
-
 
 import UpdateButtonComponent from "./UpdateButtonComponent";
 import ChartSectionComponent from "./ChartSection";

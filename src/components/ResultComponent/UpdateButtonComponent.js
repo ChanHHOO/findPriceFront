@@ -1,29 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "semantic-ui-react";
-import styled from "styled-components";
-import LoadingComponent from "../commonComponents/LoadingComponent";
 import axios from "axios";
-
-const UpdateButton = styled.div`
-  margin-left: 1em;
-`;
-
-const initialState = {
-  isCompleteSearch: false,
-};
 
 const UpdateButtonComponent = (props) => {
   
   const onClickUpdateButton = () => {
-    console.log(111)
     props.handleStartUpdate(true);
-    axios.post("http://localhost:8080/api/updateDaangnData", {
+    axios.post("http://13.125.224.69:8080/api/updateDaangnData", {
         searchItem: props.article_title,
         searchCategory: "update",
       })
       .then((res) => {
         // response value mapping code
-        console.log(res.data);
         props.onSuccessUpdate(res.data[res.data.length - 1]);
         // --------------------------
         props.handleStartUpdate(false);
