@@ -39,7 +39,13 @@ const SearchComponent = (props) => {
                 setStartSearch(false);
             })
             .catch((err) => {
-                console.log(err);
+                if (err.request.status === 500){
+                    setStartSearch(false);
+                    alert("찾는 물건이 없습니다.");
+                    setItemName("");
+                    
+                }
+                
             })
         }
     }
