@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from "react";
 import { Search, Grid, Segment, Card, Image } from 'semantic-ui-react'
 import styled from "styled-components"
-
+import axios from "axios";
 import UpdateButtonComponent from "./UpdateButtonComponent";
 import ChartSectionComponent from "./ChartSection";
 import {getDomainString, getLastUpdateTimeString} from "../../module/stringProccessing";
@@ -38,14 +38,30 @@ const ResultBody = styled.div`
     }
 `
 const ResultBodyComponent = (props) => {
-    console.log("resultBody" + props.searchedData);
     
     const [startSearch, setStartSearch] = useState(false);
 
     const handleStartUpdate= async (bool)=>{
         await setStartSearch(bool)
     }
-    useEffect(()=>{},[startSearch])
+  console.log(props.searchedData.article_title)
+  if (props.searchedData.article_title === "" || props.searchedData.article_title === undefined) {
+
+    axios.post('http://13.125.224.69:8080/api/getDaangnData', {
+      searchItem: localStorage.getItem("currentSearchedItem"),
+      searchCategory: "get",
+    })
+      .then((res) => {
+        // response value mapping code
+        props.onSuccessSearch(res.data[res.data.length - 1]);
+        setStartSearch(false);
+        // --------------------------
+      })
+  }
+
+  useEffect(() => {
+    },[startSearch])
+    console.log(props.searchedData.article_title)
     return (
       <ResultBody>
         <Segment.Group>

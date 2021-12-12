@@ -20,6 +20,17 @@ const ResultBody = styled.div`
 
 `
 
+const initialData = {
+    chartDomain_firstX : "0 ~ 0",
+    chartDomain_secondX : "0 ~ 0",
+    chartDomain_thirdX : "0 ~ 0",
+    chartDomain_fourthX : "0 ~ 0",
+    chartData_firstY : 0,
+    chartData_secondY : 0,
+    chartData_thirdY : 0,
+    chartData_fourthY : 0,
+}
+
 const mappingGraphData = (domain, data)=>{
     var li = []
     for(var i = 0 ; i < 4 ; i++){
@@ -41,9 +52,9 @@ const ChartSectionComponent = (props) => {
         chartData_secondY,
         chartData_thirdY,
         chartData_fourthY,
-    } = props.searchedData;
-    
-    
+    } = (props.searchedData.chartDomain_firstX == "" || props.searchedData.chartDomain_firstX == undefined) ?  initialData : props.searchedData;
+
+    console.log(chartDomain_firstX);
     const {unit, chartDomain} = getDomainString([chartDomain_firstX, chartDomain_secondX, chartDomain_thirdX, chartDomain_fourthX]);
     const chartDatas = [chartData_firstY, chartData_secondY, chartData_thirdY, chartData_fourthY];
     const mappedData = mappingGraphData(chartDomain, chartDatas);

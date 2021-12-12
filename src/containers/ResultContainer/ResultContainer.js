@@ -7,23 +7,18 @@ import { Redirect } from "react-router";
 const ResultContainer = (props) => {
     const handleSuccessSearch = (updatedData)=>{
         props.successSearch(updatedData)
+        console.log(updatedData);
     }
 
 
 
     return (
-        true? 
         <ResultBodyComponent 
             searchedData={props.searchedData}
             startSearch={props.startSearch}
             onSuccessSearch={handleSuccessSearch}
             handleStartSearch={props.handleStartSearch}
         ></ResultBodyComponent> 
-        :
-        <Redirect
-            to={{
-                pathname: '/'
-        }}/>    
     )
 }
 

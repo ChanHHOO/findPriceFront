@@ -29,9 +29,11 @@ const SearchComponent = (props) => {
                 // response value mapping code
                 onSuccessSearch(res.data);
                 // --------------------------
+                localStorage.setItem('currentSearchedItem', itemName)
                 setIsSuccess(true);
                 setItemName("");
                 setStartSearch(false);
+                
             })
             .catch((err) => {
                 if (err.request.status === 500){
