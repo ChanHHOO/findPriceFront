@@ -46,8 +46,8 @@ const ResultBodyComponent = (props) => {
     }
   console.log(props.searchedData.article_title)
   if (props.searchedData.article_title === "" || props.searchedData.article_title === undefined) {
-
-    axios.post('http://13.125.224.69:8080/api/getDaangnData', {
+    
+    axios.post('http://13.124.147.122:8080/api/getDaangnData', {
       searchItem: localStorage.getItem("currentSearchedItem"),
       searchCategory: "get",
     })
