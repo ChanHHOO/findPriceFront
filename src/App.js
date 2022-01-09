@@ -10,6 +10,10 @@ import ResultPage from "./pages/Result"
 
 class App extends Component{
   render(){
+
+    const htmlTitle = document.querySelector("title");
+    htmlTitle.innerHTML = "find price";
+
     return (
       <Provider store={store}>
         <HeaderContainer />
