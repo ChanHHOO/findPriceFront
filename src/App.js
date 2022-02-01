@@ -7,6 +7,7 @@ import MarginComponent from './components/commonComponents/HeaderComponent/Margi
 import MainContainer from './containers/MainContainer/MainContainer'
 import HeaderContainer from './containers/HeaderContainer/HeaderContainer';
 import ResultPage from "./pages/Result"
+import FooterComponent from './components/commonComponents/FooterComponent/FooterComponent';
 
 class App extends Component{
   render(){
@@ -20,6 +21,7 @@ class App extends Component{
         <MarginComponent />
         <Route exact path='/' component={MainContainer} />
         <Route exact path='/search' component={ResultPage} />
+        <FooterComponent />
       </Provider>
     );
   }
