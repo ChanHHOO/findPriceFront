@@ -54,7 +54,6 @@ const ChartSectionComponent = (props) => {
         chartData_fourthY,
     } = (props.searchedData.chartDomain_firstX == "" || props.searchedData.chartDomain_firstX == undefined) ?  initialData : props.searchedData;
 
-    console.log(chartDomain_firstX);
     const {unit, chartDomain} = getDomainString([chartDomain_firstX, chartDomain_secondX, chartDomain_thirdX, chartDomain_fourthX]);
     const chartDatas = [chartData_firstY, chartData_secondY, chartData_thirdY, chartData_fourthY];
     const mappedData = mappingGraphData(chartDomain, chartDatas);

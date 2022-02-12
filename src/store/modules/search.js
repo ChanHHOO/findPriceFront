@@ -50,6 +50,7 @@ const initialState = {
 // reducer
 export default handleActions({
     [SUCCESS_SEARCHE]:(state, action)=>{
+        console.log(action)
         return {
             searchedData:action.payload,
             isSearched:true,

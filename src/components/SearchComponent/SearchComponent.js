@@ -22,7 +22,7 @@ const SearchComponent = (props) => {
             }
             setStartSearch(true)
             axios.post('http://localhost:8080/api/getDaangnData',{
-                searchItem:itemName,
+                article_title:itemName,
                 searchCategory:"get",
             })
             .then((res) => {
@@ -42,7 +42,7 @@ const SearchComponent = (props) => {
                     setItemName("");
                     
                 }
-                
+                console.log(err)
             })
         }
     }

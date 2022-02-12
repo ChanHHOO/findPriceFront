@@ -44,7 +44,6 @@ const ResultBodyComponent = (props) => {
     const handleStartUpdate= async (bool)=>{
         await setStartSearch(bool)
     }
-  console.log(props.searchedData.article_title)
   if (props.searchedData.article_title === "" || props.searchedData.article_title === undefined) {
     
     axios.post('http://13.124.147.122:8080/api/getDaangnData', {
@@ -61,7 +60,6 @@ const ResultBodyComponent = (props) => {
 
   useEffect(() => {
     },[startSearch])
-    console.log(props.searchedData.article_title)
     return (
       <ResultBody>
         <Segment.Group>

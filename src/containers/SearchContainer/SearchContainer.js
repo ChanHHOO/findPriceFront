@@ -6,7 +6,8 @@ import * as searchActions from '../../store/modules/search';
 
 const SearchContainer = (props) => {
     const handleSuccessSearch = (searchedData)=>{
-        props.successSearch(searchedData[searchedData.length - 1]);
+        console.log(searchedData);
+        props.successSearch(searchedData);
     }
     const handleFailSearch = ()=>{
         props.failSearch();

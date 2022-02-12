@@ -111,10 +111,6 @@ const MainComponent = (props) => {
             </div>
             {false && <Redirect to="/search" />}
         </Main>
-
-
     )
-
-
 }
 export default MainComponent;
