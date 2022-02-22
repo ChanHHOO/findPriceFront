@@ -6,8 +6,8 @@ const UpdateButtonComponent = (props) => {
   
   const onClickUpdateButton = () => {
     props.handleStartUpdate(true);
-    axios.post("http://localhost:8080/api/updateDaangnData", {
-        searchItem: props.article_title,
+    axios.post("http://localhost:8081/api/updateDaangnData", {
+        article_title: props.article_title,
         searchCategory: "update",
       })
       .then((res) => {

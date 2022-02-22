@@ -21,7 +21,7 @@ const SearchComponent = (props) => {
                 props.startSearch();
             }
             setStartSearch(true)
-            axios.post('http://localhost:8080/api/getDaangnData',{
+            axios.post('http://localhost:8081/api/getDaangnData',{
                 article_title:itemName,
                 searchCategory:"get",
             })
