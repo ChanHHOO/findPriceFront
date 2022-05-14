@@ -13,8 +13,41 @@
 	2. 검색 결과 중 최고가, 최저가 상품의 정보
     3. 물건들의 가격 분포도 
 
+### 🌠 실행 결과 
 
+- Main <br>
+<table>
+	<tbody>
+		<tr>
+            <td rowspan="6">
+                <div align="center">
+                    <img src="./src/images/main.png" width="40%" height="50%">
+                </div>
+            </td>
+            <td width="33%"></td>
+        </tr>
+	<tr>
+	    <td>main_page</td>
+	</tr>
+    </tbody>
+</table>
+
+- Main <br>
+<table>
+	<tbody>
+		<tr>
+            <td rowspan="6">
+                <div align="center">
+                    <img src="./src/images/result_page.png" width="40%" height="50%">
+                </div>
+            </td>
+            <td width="33%"></td>
+        </tr>
+	<tr>
+	    <td>result_page</td>
+	</tr>
+    </tbody>
+</table>
 
 ## 💬 유의할점
   1. 없다. 
->>>>>>> master

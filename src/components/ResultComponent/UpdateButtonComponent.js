@@ -12,7 +12,7 @@ const UpdateButtonComponent = (props) => {
       })
       .then((res) => {
         // response value mapping code
-        props.onSuccessUpdate(res.data[res.data.length - 1]);
+        props.onSuccessUpdate(res.data);
         // --------------------------
         props.handleStartUpdate(false);
       })
